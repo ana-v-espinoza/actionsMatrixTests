@@ -11,4 +11,4 @@
 	# -e "insert a "]" after the last line"
 
 git branch -r | grep -v "HEAD" | grep "origin/" | awk -F "/" '{print $2}' |
-sed -e "s/.*/\"&\",/g" -e "$ s/,$//g" -e "1 i \"branches\": [" -e "$ a ]"
+sed -e "s/.*/\"&\",/g" -e "$ s/,$//g" -e "1 i \"branch\": [" -e "$ a ]"
