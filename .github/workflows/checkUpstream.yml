@@ -25,11 +25,11 @@ jobs:
       - name: set-matrix
         run: |
           matrix=$(
-          echo {
-            $(.github/helperScripts/remoteBranchNamesToJSON.sh),
-            $(.github/helperScripts/tomcatVersions.sh),
-            $(.github/helperScrips/jdkVersion.sh)
-          }
+          echo {\
+            $(.github/helperScripts/remoteBranchNamesToJSON.sh)", "\
+            $(.github/helperScripts/tomcatVersions.sh)", "\
+            $(.github/helperScrips/jdkVersion.sh)\
+          }\
           )
           echo $matrix
           echo "::set-output name=matrix::$matrix"
