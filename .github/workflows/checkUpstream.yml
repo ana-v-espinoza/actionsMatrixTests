@@ -22,7 +22,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: set-matrix
+      - name: Create matrix
+        id: set-matrix
         run: |
           matrix=$(
           echo {\
