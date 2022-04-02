@@ -47,6 +47,8 @@ jobs:
     needs: createMatrix
     matrix: ${{ fromJson(needs.createMatrix.outputs.matrix) }}
 
+    steps:
+
       - name: Test git
         run: git --version
 
