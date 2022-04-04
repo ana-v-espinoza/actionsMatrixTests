@@ -9,7 +9,9 @@
 MAJORTOMCATVERSION=$1
 JDKVERSION=$2
 
-./dockertags.sh tomcat | \
+RELDIR=$(dirname $0)
+
+$RELDIR/dockertags.sh tomcat | \
 grep "^\(${MAJORTOMCATVERSION}[.-]\)\([0-9]*[.-]\)*\(jdk${JDKVERSION}-openjdk\)$" | \
 #awk -F "-" '{print $1}' | \
 sort -Vr | \
