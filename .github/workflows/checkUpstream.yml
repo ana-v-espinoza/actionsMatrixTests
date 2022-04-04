@@ -62,15 +62,15 @@ jobs:
         run: |
           git status \
           git branch -a \
-          git remote -v \
+          git remote -v
 
       - name: Check matrix outputs
         run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
 
       - name: Grab the most recent upstream tomcat version
         run: |
-          upstreamtomcat=$(./.github/helperScripts/findTomcatVersion.sh ${{matrix.tomcat}} ${{ matrix.jdk }}) \\
-          echo $upstreamtomcat \\
+          upstreamtomcat=$(./.github/helperScripts/findTomcatVersion.sh ${{matrix.tomcat}} ${{ matrix.jdk }}) \
+          echo $upstreamtomcat \
           echo "upstreamtomcat=$upstreamtomcat" >> $GITHUB_ENV
 
       - name: Does most recent version exist
