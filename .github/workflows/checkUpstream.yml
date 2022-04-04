@@ -58,14 +58,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify repo has been cloned
-        run: |
-          git status \
-          git branch -a \
-          git remote -v
-
-      - name: Check matrix outputs
-        run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
+          #      - name: Verify repo has been cloned
+          #        run: |
+          #          git status \
+          #          git branch -a \
+          #          git remote -v
+          #
+          #      - name: Check matrix outputs
+          #        run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
 
       - name: Grab the most recent upstream tomcat version
         run: |
