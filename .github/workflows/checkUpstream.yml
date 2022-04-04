@@ -65,7 +65,7 @@ jobs:
           git remote -v
 
       - name: Check matrix outputs
-        run: echo Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}
+        run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
 
       - name: Grab the most recent upstream tomcat version
         run: |
