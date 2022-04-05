@@ -81,8 +81,9 @@ jobs:
       run: |
         echo ${{ env.upstreamtomcat }}
         git branch -a
-        git branch -a | grep "main" &&
-        echo "Already up to date"
+        git branch -a | grep "${{ env.upstreamtomcat }}" &&
+        echo "Already up to date" ||
+        echo "Not up to date"
 
       #echo "Already up to date with Tomcat ${{ env.upstreamtomcat }} ||
       #echo "New Tomcat version ${{ env.upstreamcomcat }}" &&
