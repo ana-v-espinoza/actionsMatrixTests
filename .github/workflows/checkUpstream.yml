@@ -85,7 +85,7 @@ jobs:
         echo "Already up to date with Tomcat ${{ env.upstreamtomcat }} ||
         echo "Not up to date"
         echo "Finding most up to date version"
-        "Branch off of most recent version in repo"
+        echo "Branch off of most recent version in repo"
 
       #echo "New Tomcat version ${{ env.upstreamtomcat }}"
       #echo "Psuedocode: Find most up to date tomcat version ${{ matrix.tomcat }} with jdk version ${{ matrix.jdk }}"
