@@ -84,7 +84,7 @@ jobs:
         git branch -a | grep "${{ env.upstreamtomcat }}" &&
         echo "Already up to date with Tomcat ${{ env.upstreamtomcat }} ||
         echo "New Tomcat version ${{ env.upstreamtomcat }}"
-        echo "Psuedocode: Find most up to date tomcat version (${{ matrix.tomcat }}) with jdk version ${{ matrix.jdk }}"
+        echo "Psuedocode: Find most up to date tomcat version ${{ matrix.tomcat }} with jdk version ${{ matrix.jdk }}"
         echo "Psuedocode: Branch off of most recent version in repo"
 
     - name: Update Dockerfiles
