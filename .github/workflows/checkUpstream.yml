@@ -50,39 +50,39 @@ jobs:
 
     steps:
 
-      - name: Test git
-        run: git --version
+    - name: Test git
+      run: git --version
 
-      - name: Checkout default branch
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+    - name: Checkout default branch
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
-          #      - name: Verify repo has been cloned
-          #        run: |
-          #          git status \
-          #          git branch -a \
-          #          git remote -v
-          #
-          #      - name: Check matrix outputs
-          #        run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
+    - name: Verify repo has been cloned
+      run: |
+        git status
+        git branch -a
+        git remote -v
 
-      - name: Grab the most recent upstream tomcat version
-        run: |
-          upstreamtomcat=$(./.github/helperScripts/findTomcatVersion.sh ${{matrix.tomcat}} ${{ matrix.jdk }}) \
-          echo $upstreamtomcat \
-          echo "upstreamtomcat=$upstreamtomcat" >> $GITHUB_ENV
+      # - name: Check matrix outputs
+      #   run: echo "Branch: ${{ matrix.branch }} Tomcat: ${{ matrix.tomcat }} JDK: ${{ matrix.jdk }}"
 
-      - name: Does most recent version exist
-        run: |
-          git branch -a | grep "${{ env.upstreamtomcat }}" &&
-          echo "Already up to date with Tomcat ${{ env.upstreamtomcat }} ||
-          echo "New Tomcat version ${{ env.upstreamcomcat }}" &&
-          echo "Psuedocode: Find most up to date tomcat version (${{ matrix.tomcat }}) with jdk version ${{ matrix.jkd }}" &&
-          echo "Psuedocode: Branch off of most recent version in repo
+    - name: Grab the most recent upstream tomcat version
+      run: |
+        upstreamtomcat=$(./.github/helperScripts/findTomcatVersion.sh ${{matrix.tomcat}} ${{ matrix.jdk }})
+        echo $upstreamtomcat
+        echo "upstreamtomcat=$upstreamtomcat" >> $GITHUB_ENV
 
-      - name: Update Dockerfiles
-        run: echo "Update Dockerfiles"
+    - name: Does most recent version exist
+      run: |
+        git branch -a | grep "${{ env.upstreamtomcat }}" &&
+        echo "Already up to date with Tomcat ${{ env.upstreamtomcat }} ||
+        echo "New Tomcat version ${{ env.upstreamcomcat }}" &&
+        echo "Psuedocode: Find most up to date tomcat version (${{ matrix.tomcat }}) with jdk version ${{ matrix.jkd }}" &&
+        echo "Psuedocode: Branch off of most recent version in repo
 
-      - name: Commit and push changes
-        run: echo "Commit and push changes"
+    - name: Update Dockerfiles
+      run: echo "Update Dockerfiles"
+
+    - name: Commit and push changes
+      run: echo "Commit and push changes"
