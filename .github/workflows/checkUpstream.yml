@@ -111,7 +111,7 @@ jobs:
         echo "New upstream version ${{ env.upstream }}"
         current=$(git branch -r --list "origin/${{ matrix.tomcat }}.*-jdk${{ matrix.jdk }}-openjdk" | sort -Vr | head -n1)
         test -n "$current" && { echo "Most recent unidata/tomcat version found at: $current"; branch=$current; } ||
-        { echo "No local branch found with tomcat ${{ matrix.tomcat }} and JDK ${{ matrix.jdk }}"; branch="latest"; }
+        { echo "No local branch found with tomcat ${{ matrix.tomcat }} and JDK ${{ matrix.jdk }}"; branch="main"; }
         echo "Creating new branch from $branch ..."
         git checkout -b ${{ env.upstream }} $branch
 
