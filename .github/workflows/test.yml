@@ -1,0 +1,20 @@
+name: Testing dereferencing objects using variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set environment variables
+      run: |
+        echo 'test="test success!"' >> $GITHUB_ENV
+
+    - name: Test dereferencing
+      run: |
+        echo 'Using property dereference syntax "\${{ env.test }}": ${{ env.test }}'
+        echo setting shell variable "var=test"...
+        var=test
+        echo 'Using index syntax "\${{ env.[\'\$var\'] }}": ${{ env.[\'${var}\'] }}'
